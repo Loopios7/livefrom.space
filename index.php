@@ -1,6 +1,7 @@
 <?php
 $ytid = "5qap5aO4i9A";
 $ytsrc = 'https://www.youtube.com/embed/' . $ytid . '?controls=1&rel=0&autoplay=1';
+$ytsrc = 'localhost'
 ?>
 
 <!DOCTYPE html>
@@ -31,27 +32,20 @@ $ytsrc = 'https://www.youtube.com/embed/' . $ytid . '?controls=1&rel=0&autoplay=
     <div class="uk-position-relative">
         <div class="uk-position-top">
 
-            <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+            <nav class="uk-navbar-container uk-navbar-transparent uk-visible-toggle uk-animation-toggle" uk-navbar>
                 <div class="uk-navbar-right">
-                    <ul class="uk-iconnav uk-padding-large">
-                        <li><a href="https://github.com/loopios7/livefrom.space" target="_blank" uk-icon="icon: github; ratio: 3"></a></li>
+                    <ul class="uk-iconnav uk-padding-large uk-invisible-hover uk-animation-fade uk-animation-fast">
+                        <li>
+                            <a href="https://github.com/loopios7/livefrom.space" target="_blank" uk-icon="icon: github; ratio: 3"></a>
+                        </li>
                     </ul>
                 </div>
             </nav>
         </div>
-        <iframe style="top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden;" src="<?php echo $ytsrc ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen uk-video="automute: true" uk-height-viewport>Your browser does not support iframes.</iframe>
+        <iframe id="ytplayer" src="<?php echo $ytsrc ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen uk-video="automute: true" uk-height-viewport>Your browser does not support iframes.</iframe>
 
     </div>
 
 </body>
 
 </html>
-
-<!-- Helper JS for page fade in -->
-<script type="text/javascript">
-    window.onload = function() {
-        setTimeout(function() {
-            document.getElementById("loader").remove();
-        }, 1000);
-    };
-</script>
