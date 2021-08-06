@@ -1,7 +1,5 @@
 <?php
 $ytid = "21X5lGlDOfg";
-$ytsrc = 'https://www.youtube.com/embed/' . $ytid . '?controls=1&rel=0&autoplay=1';
-//$ytsrc = 'localhost'
 ?>
 
 <!DOCTYPE html>
@@ -13,19 +11,8 @@ $ytsrc = 'https://www.youtube.com/embed/' . $ytid . '?controls=1&rel=0&autoplay=
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content="" />
-    <?php
-    $filename = './css/style.min.css';
-
-    if (file_exists($filename)) {
-        echo '<link rel="stylesheet" type="text/css" href="css/style.min.css" />';
-    } else {
-        echo '<link rel="stylesheet" type="text/css" href="css/style.css" />';
-    }
-    ?>
-    <link rel="stylesheet" href="css/uikit.min.css" />
-    <script src="js/uikit.min.js"></script>
-    <script src="js/uikit-icons.min.js"></script>
     <link rel="icon" href="img/favicon.png">
+    
     <meta property="og:title" content="" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
@@ -34,22 +21,37 @@ $ytsrc = 'https://www.youtube.com/embed/' . $ytid . '?controls=1&rel=0&autoplay=
     <meta name="twitter:title" content="">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
+
+    <?php
+    # stylesheets to load
+    $stylesheets = ['style', 'uikit'];
+
+    foreach ($stylesheets as $stylesheet) {
+        # return minimized version if possible
+        if (file_exists('css/' . $stylesheet . '.min.css')) {
+            echo '<link rel="stylesheet" type="text/css" href="css/' . $stylesheet . '.min.css" />';
+        } else {
+            echo '<link rel="stylesheet" type="text/css" href="css/' . $stylesheet . '.css" />';
+        }
+    }
+
+    # JS files to load
+    $javascripts = ['uikit', 'uikit-icons'];
+
+    foreach ($javascripts as $javascript) {
+        # return minimized version if possible
+        if (file_exists('js/' . $javascript . '.min.js')) {
+            echo '<script src="js/' . $javascript . '.min.js"></script>';
+        } else {
+            echo '<script src="js/' . $javascript . '.js"></script>';
+        }
+    }
+    ?>
 </head>
 
 <body>
     <div class="uk-position-relative">
-        <div class="uk-position-top  uk-hidden">
-            <nav class="uk-navbar-container uk-navbar-transparent uk-visible-toggle uk-animation-toggle" uk-navbar>
-                <div class="uk-navbar-right">
-                    <ul class="uk-iconnav uk-padding-large uk-invisible-hover uk-animation-fade uk-animation-fast">
-                        <li>
-                            <a href="https://github.com/loopios7/livefrom.space" target="_blank" uk-icon="icon: github; ratio: 3"></a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        <iframe id="ytplayer" src="<?php echo $ytsrc ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen uk-video="automute: true" uk-height-viewport>Your browser does not support iframes.</iframe>
+        <iframe id="ytplayer" src="<?php echo 'https://www.youtube.com/embed/' . $ytid . '?controls=1&rel=0&autoplay=1' ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen uk-video="automute: true" uk-height-viewport>Your browser does not support iframes.</iframe>
     </div>
 </body>
 
