@@ -22,30 +22,8 @@ $ytid = "21X5lGlDOfg";
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
-    <?php
-    # stylesheets to load
-    $stylesheets = ['style', 'uikit'];
-
-    foreach ($stylesheets as $stylesheet) {
-        # return minimized version if possible
-        if (file_exists('css/' . $stylesheet . '.min.css')) {
-            echo '<link rel="stylesheet" type="text/css" href="css/' . $stylesheet . '.min.css" />';
-        } else {
-            echo '<link rel="stylesheet" type="text/css" href="css/' . $stylesheet . '.css" />';
-        }
-    }
-
-    # JS files to load
-    $javascripts = ['uikit', 'uikit-icons'];
-
-    foreach ($javascripts as $javascript) {
-        # return minimized version if possible
-        if (file_exists('js/' . $javascript . '.min.js')) {
-            echo '<script src="js/' . $javascript . '.min.js"></script>';
-        } else {
-            echo '<script src="js/' . $javascript . '.js"></script>';
-        }
-    }
+    <?php 
+    include("{$_SERVER['DOCUMENT_ROOT']}/php/head.php")
     ?>
 </head>
 
