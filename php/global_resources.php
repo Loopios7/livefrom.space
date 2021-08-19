@@ -49,5 +49,6 @@ function insertAllOg(
     <meta property="og:description" content="', $description, '" />
     <meta property="og:type" content="', $type, '" />
     <meta property="og:image" content="', $image, '" />
+    <meta name="twitter:card" content="summary_large_image">
     ';
 }
