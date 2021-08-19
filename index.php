@@ -12,40 +12,12 @@ $ytid = "21X5lGlDOfg";
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content="" />
     <link rel="icon" href="img/favicon.png">
-    
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="" />
-    <meta name="twitter:card" content="">
-    <meta name="twitter:site" content="">
-    <meta name="twitter:title" content="">
-    <meta name="twitter:description" content="">
-    <meta name="twitter:image" content="">
 
     <?php
-    # stylesheets to load
-    $stylesheets = ['style', 'uikit'];
-
-    foreach ($stylesheets as $stylesheet) {
-        # return minimized version if possible
-        if (file_exists('css/' . $stylesheet . '.min.css')) {
-            echo '<link rel="stylesheet" type="text/css" href="css/' . $stylesheet . '.min.css" />';
-        } else {
-            echo '<link rel="stylesheet" type="text/css" href="css/' . $stylesheet . '.css" />';
-        }
-    }
-
-    # JS files to load
-    $javascripts = ['uikit', 'uikit-icons'];
-
-    foreach ($javascripts as $javascript) {
-        # return minimized version if possible
-        if (file_exists('js/' . $javascript . '.min.js')) {
-            echo '<script src="js/' . $javascript . '.min.js"></script>';
-        } else {
-            echo '<script src="js/' . $javascript . '.js"></script>';
-        }
-    }
+    include 'php/global_resources.php';
+    insertAllOg();
+    insertAllCss();
+    insertAllJs();
     ?>
 </head>
 
