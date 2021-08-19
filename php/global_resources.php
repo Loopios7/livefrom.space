@@ -32,7 +32,7 @@ function insertAllJs()
 function insertAllOg(
     $title = "LiveFrom.Space",
     $description = "View fantastic streams broadcasted from space!",
-    $image = "/image/og_image.png",
+    $image = "/img/og_image.png",
     $type = "website",
     $url = null
 ) {
