@@ -44,6 +44,7 @@ function insertAllOg(
     $image = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $image;
 
     echo '
+    <meta name="theme-color" content="#9D47D8">
     <meta property="og:url" content="', $url, '" />
     <meta property="og:title" content="', $title, '" />
     <meta property="og:description" content="', $description, '" />
