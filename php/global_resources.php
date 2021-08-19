@@ -41,7 +41,7 @@ function insertAllOg(
         $url = $_SERVER['REQUEST_URI'];
     }
 
-    $image=$_SERVER['DOCUMENT_ROOT'].$image;
+    $image = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $image;
 
     echo '
     <meta property="og:url" content="', $url, '" />
