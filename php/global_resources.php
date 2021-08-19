@@ -36,12 +36,13 @@ function insertAllOg(
     $type = "website",
     $url = null
 ) {
+    $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
 
     if (is_null($url)) {
-        $url = $_SERVER['REQUEST_URI'];
+        $url = $root . $_SERVER['REQUEST_URI'];
     }
 
-    $image = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $image;
+    $image =  $root . $image;
 
     echo '
     <meta name="theme-color" content="#9D47D8">
